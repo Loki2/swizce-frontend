@@ -5,6 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 import Loader from 'react-loader-spinner';
 import { QUERY_SCREAMS } from "../graphql/Scream";
 
+
 import Home from '../components/Home/Home';
 
 import Sidebar from "../components/Partials/Sidebar";
@@ -19,7 +20,7 @@ const Start: React.FC<Props> = () => {
       return currentYear;
   };
 
-  const { loggedInUser } = useContext(AuthContext);
+  const {handleAuthAction, loggedInUser } = useContext(AuthContext);
 
   const router = useRouter();
 
@@ -40,20 +41,25 @@ const Start: React.FC<Props> = () => {
   }, [loggedInUser]);
 
   if (loading) return <p>Loading ...</p>;
-  if (error) return <p>error</p>;
+  // if (error) return <p>error</p>;
 
   return !loggedInUser ? (
     <div className="home__page">
     <section className="home__main">
       {/* main container */}
-        <div className="home__container">
-          <Loader
-            type="Oval"
-            color="teal"
-            height={50}
-            width={50}
-            timeout={30000}
-          />
+        <div className="swizce__home__container">
+          <div className="swizce__contents">
+            <img src="https://res.cloudinary.com/swizce/image/upload/v1633952299/Swizce/home/Collaborators_mgnxhg.svg" alt="" />
+          </div>
+          <div className="swizce__slogan">
+            <img src="https://res.cloudinary.com/swizce/image/upload/v1620702365/Swizce/icons/swizce_aez2ms.png" height="34px" />
+            <p>Just do one more thing...! <br /> Forward to your goal :) </p>
+            <br />
+            <hr />
+            <div className="swizce__slogan__action">
+              <a onClick={() => handleAuthAction('signin')} style={{ cursor: 'pointer'}}>Signin<i className="ti-angle-right"/></a>
+            </div>            
+          </div>                
         </div>
     </section>
   </div>
@@ -286,7 +292,7 @@ const Start: React.FC<Props> = () => {
             </div>
         </section>
       </div>
-    {!loggedInUser ? <div></div> : <Rightbar />}
+      {!loggedInUser ? <div></div> : <Rightbar />}
     </>
   )
 }

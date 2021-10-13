@@ -21,11 +21,6 @@ export interface User {
   }
 }
 
-
-export type SignupArgs = Pick<User, 'username' | 'email'> & { password: string }
-
-export type SigninArgs = Omit<SignupArgs, 'username'>
-
 export interface Scream {
   id: string,
   imageUrl: string,
@@ -47,3 +42,10 @@ export interface Song {
   fileUrl: string
 }
 
+
+
+export type SignupArgs = Pick<User, 'username' | 'email'> & { password: string }
+
+export type SigninArgs = Omit<SignupArgs, 'username'>
+
+export type CreateScreamArgs = Pick<Scream, 'description' | 'imageUrl'>

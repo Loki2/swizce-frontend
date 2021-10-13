@@ -28,7 +28,9 @@ const Rightbar: React.FC<Props> = () => {
          {/* Right bar */}
         <div className="rightbar Profile">
           <div className="profile">
-            <img src="https://res.cloudinary.com/swizce/image/upload/v1620702350/Swizce/icons/test_roevfj.jpg"  />
+            <a>
+              <img src="https://res.cloudinary.com/swizce/image/upload/v1620702350/Swizce/icons/test_roevfj.jpg"  />
+            </a>            
           </div>
           <div className="biography">
             <p>@username</p>
@@ -67,7 +69,9 @@ const Rightbar: React.FC<Props> = () => {
             <img src={loggedInUser.profile.coverUrl} width="400px" height="168px" />
           </div> */}
           <div className="profile">
-            <img src={loggedInUser.profile.profileUrl}  />
+            <a onClick={() => console.log("Create User Stories")} >
+              <img src={loggedInUser.profile.profileUrl}  />
+            </a>            
           </div>
           <div className="biography">
             <p>{loggedInUser.profile.firstname} {loggedInUser.profile.lastname}</p>

@@ -10,7 +10,7 @@
 .scream__left {
   position: fixed;
   left: 230px;
-  margin-top: 58px;
+  margin-top: 57px;
 }
 
 .lives__steam__now {
@@ -92,7 +92,7 @@
 .scream__main {
   padding: 3.5rem 0 0.3rem 0;
   flex: 1;
-  margin-top: 15px;
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -136,7 +136,7 @@
 
 .scream__container .public_time {
   padding: 3px;
-  background: teal;
+  background: var(--primary);
   border-radius: 15px;
 }
 
@@ -149,7 +149,7 @@
 
 .scream__media img {
   width: 765px;
-  height: 815px;
+  height: 825px;
   object-fit: cover;
   border-radius: 5px;
 }

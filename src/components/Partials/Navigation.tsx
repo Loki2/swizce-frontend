@@ -39,85 +39,58 @@ const Navigation: React.FC<NavigationProps> = () => {
   }
 
   //  console.log("user logged in:", loggedInUser)
-  return (
+  return !loggedInUser ? (
     <>
-      <div className="navigation">
-        <div className="logo">
+      <div className="navigation__not__authorize">
+        <div className="navigation__logo">
           <a href="/">
               <img src="https://res.cloudinary.com/swizce/image/upload/v1620702365/Swizce/icons/swizce_aez2ms.png" height="34px" />
           </a>
         </div>
-            {
-              loggedInUser && (
-                <>
-                <div className="wrapper">
-                  <div className="avatar">
-                    <ul>
-                      <li>
-                        <a href="#">
-                          <img src="https://res.cloudinary.com/swizce/image/upload/v1620702239/Swizce/images/avatar1_c05cmb.png" className="btn" />
-                        </a>
-                      </li>                      
-                    </ul>
-                  </div>
-                </div>
-                <div className="search">
-                  <input
-                    type="search"
-                    name="search"
-                    id="search"
-                    placeholder="Found Somethings..."
-                    />
-                </div>
-                </>
-              )}
-              <div className="nav-action">
-                {
-                  loggedInUser ? 
-                  <a style={{ cursor: 'pointer'}}>
-                    <img onClick={handleSignout}
-                          src="https://res.cloudinary.com/swizce/image/upload/v1622518178/Swizce/images/log-out_aqu0w7.png"
-                          width="32px"
-                          height="32px"
-                    />
-                  </a>
-                  :
-                  <a onClick={() => handleAuthAction('signin')} style={{ cursor: 'pointer'}}>
-                    <img
-                          src="https://res.cloudinary.com/swizce/image/upload/v1620702241/Swizce/images/login_qgoycx.png"
-                          width="32px"
-                          height="32px"
-                        />
-                  </a>
-                }
-                </div>
-                {
-                  loggedInUser && isAdmin(loggedInUser) && (
-                    <div className="navigation">
-                      <div className="logo">
-                        <a href="/">
-                            <img src="https://res.cloudinary.com/swizce/image/upload/v1620702365/Swizce/icons/swizce_aez2ms.png" height="34px" />
-                        </a>
-                      </div>
-                      <div className="nav-action">
-                      <a href="/admin">Admin</a>
-                      </div>
-
-                      <div className="nav-action">
-                        <a style={{ cursor: 'pointer'}}>
-                          <img
-                            onClick={handleSignout}
-                            src="https://res.cloudinary.com/swizce/image/upload/v1622518178/Swizce/images/log-out_aqu0w7.png"
-                            width="32px"
-                            height="32px"
-                          />
-                        </a>
-                      </div>
-                    </div>
-                  )}
-            </div>
-          </>
-        );
-      };
+        <div className="swizce__navigation__link">
+          <a onClick={() => handleAuthAction('signin')} style={{ cursor: 'pointer'}}>
+            <img
+              src="https://res.cloudinary.com/swizce/image/upload/v1620702241/Swizce/images/login_qgoycx.png"
+              width="32px"
+              height="32px"
+            />
+          </a>
+        </div>
+      </div>
+    </>
+  ) : (
+    <>
+      <div className="navigation__authenticated">
+        <div className="navigation__logo">
+          <a href="/">
+              <img src="https://res.cloudinary.com/swizce/image/upload/v1620702365/Swizce/icons/swizce_aez2ms.png" height="34px" />
+          </a>
+        </div>
+        <div className="navigation__friends__list">
+          <ul>
+            <li>
+              <a href="">
+                <img src="https://res.cloudinary.com/swizce/image/upload/v1620702239/Swizce/images/avatar1_c05cmb.png" className="btn" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="navigation__search__engine">
+          <input type="search" name="search" id="search" placeholder="Search on Swizce..."/>
+        </div>
+        <div className="navigation__link">
+          <a style={{ cursor: 'pointer'}}>
+            <img
+              onClick={handleSignout}
+              src="https://res.cloudinary.com/swizce/image/upload/v1622518178/Swizce/images/log-out_aqu0w7.png"
+              width="32px"
+              height="32px"
+            />
+          </a>
+        </div>
+      </div>
+    </>
+  );
+};
 
 export default Navigation;
