@@ -119,6 +119,17 @@
 .home__friend__stories img {
   width: 70px;
   height: 165px;
+  padding: 3px;
+  background: var(--darkgrey);
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.home__friend__stories img:hover {
+  width: 70px;
+  height: 165px;
+  padding: 3px;
+  background: var(--primary);
   object-fit: cover;
   border-radius: 5px;
 }
@@ -166,7 +177,17 @@
 .users__items img {
   width: 60px;
   height: 60px;
-  padding: 5px;
+  padding: 2px;
+  background: var(--white);
+  margin-right: 7px;
+  border-radius: 50%;
+}
+
+.users__items img:hover {
+  width: 60px;
+  height: 60px;
+  padding: 2px;
+  background: var(--primary);
   margin-right: 7px;
   border-radius: 50%;
 }
@@ -213,9 +234,18 @@
 .home__user__profile img {
   width: 65px;
   height: 65px;
-  padding: 1px;
+  padding: 2px;
   object-fit: cover;
   background: var(--white);
+  border-radius: 50%;
+}
+
+.home__user__profile img:hover {
+  width: 65px;
+  height: 65px;
+  padding: 2px;
+  object-fit: cover;
+  background: var(--primary);
   border-radius: 50%;
 }
 
@@ -254,13 +284,20 @@
   right: 5px;
   bottom: -9.5rem;
   padding: 1px 10px 1px 10px;
-  // box-shadow: 0 0.1rem 0.1rem rgb(0 0 0 / 35%);
-  transition: all 500ms ease-in-out;
+  transition: all 400ms ease-in-out;
   color: var(--white);
   p {
     margin-top: 5px;
     font-weight: 200;
+    padding: 3px;
   }
+}
+
+.home__scream__container .__scream__content p:hover {
+  background: var(--darkgrey);
+  border-radius: 10px;
+  padding: 3px;
+  color: var(--primary);
 }
 
 .home__scream .play__scream {
@@ -293,7 +330,7 @@
   display: flex;
   flex-direction: column;
   padding: 0px 3px -1px 6px;
-  transition: all 500ms ease-in-out;
+  transition: all 400ms ease-in-out;
 }
 
 .home__scream .side__icons span {
@@ -349,6 +386,16 @@
 
 .market__place__items img {
   width: 100px;
+  padding: 3px;
+  background: var(--white);
+  height: 120px;
+  margin: 2px;
+}
+
+.market__place__items img:hover {
+  width: 100px;
+  padding: 3px;
+  background: var(--primary);
   height: 120px;
   margin: 2px;
 }
@@ -383,13 +430,25 @@
 .room__item {
   display: flex;
   align-items: center;
+  margin-bottom: 3px;
 }
 
 .room__item img {
   width: 80px;
   height: auto;
-  padding: 7px;
-  border-radius: 15px;
+  background: var(--white);
+  margin-left: 5px;
+  padding: 2px;
+  border-radius: 10px;
+}
+
+.room__item img:hover {
+  width: 80px;
+  height: auto;
+  background: var(--primary);
+  margin-left: 5px;
+  padding: 2px;
+  border-radius: 10px;
 }
 
 .room__activity p {

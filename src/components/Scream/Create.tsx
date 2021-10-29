@@ -14,7 +14,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 import { CREATE_SCREAM } from '../../graphql/Scream';
 import Loader from "react-loader-spinner";
-import { UploadItems } from "./uploads/UploadItem";
+import { UploadItems } from "./uploads/Upload";
 // import { UploadItems } from "./uploads/UploadItem";
 
 interface Props {

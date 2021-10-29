@@ -132,7 +132,14 @@ const Signup: React.FC<Props> = () => {
 
           <div className="form__control">
             <button disabled={loading} style={{cursor: loading ? 'not-allowed' : 'pointer'}} type="submit">
-            { loading ? <Loader type='Oval' color='white' height={30} width={30} timeout={30000} /> : 'Submit Now!'}
+            { loading ? <Loader type='Oval' color='white' height={30} width={30} timeout={30000} /> : 
+                <img
+                src="https://res.cloudinary.com/swizce/image/upload/v1620702241/Swizce/images/login_qgoycx.png"
+                width="32px"
+                height="32px"
+                color="white"
+              />
+            }
             </button>
             {
               error && <div>{error.graphQLErrors[0]?.message || <p style={styles.errorMessage}>Sorry something went wrong...!</p>}</div>

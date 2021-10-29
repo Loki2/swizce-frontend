@@ -60,23 +60,22 @@
 
   input {
     width: 100%;
-    height: 3.2rem;
-    border: 0.5px solid teal;
-    border-radius: 4px;
+    height: 2.3rem;
+    border: 0.5px solid var(--primary);
+    border-radius: 15px;
     margin: 0.4rem 0;
-    padding: 7px;
-    font-size: 1rem;
+    padding: 4px 4px 4px 15px;
+    font-size: .9rem;
     outline: none;
-    color: teal;
+    color: var(--primary);
     box-shadow: 2px 2px 4px lightgray;
   }
 
   button {
     width: 100%;
     margin: 0px;
-    padding: 10px 3px 3px 0;
+    padding: 5px 0px 0px 0;
     background: var(--primary);
-    color: white;
     border: none;
     cursor: pointer;
     font-size: 22px;

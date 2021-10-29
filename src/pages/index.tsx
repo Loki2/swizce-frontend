@@ -222,7 +222,6 @@ const Start: React.FC<Props> = () => {
             <div className="users__room__item">
               <ul>
                   <li>
-                    <a href="">
                       <div className="room__item">
                         <img src="https://www.coe.int/documents/16695/63022230/Online-education.jpg/ecd788db-d4c0-3688-bab2-630843f09f17?t=1594381553000" alt="" />
                         <div className="room__activity">
@@ -230,10 +229,8 @@ const Start: React.FC<Props> = () => {
                         </div>
                         <a href="">Join</a>
                       </div>
-                    </a>
                   </li>
                   <li>
-                    <a href="">
                       <div className="room__item">
                         <img src="https://blog.coursify.me/wp-content/uploads/2019/09/online-education-coursifyme.jpg" alt="" />
                         <div className="room__activity">
@@ -241,10 +238,8 @@ const Start: React.FC<Props> = () => {
                         </div>
                         <a href="">Join</a>
                       </div>
-                    </a>
                   </li>
                   <li>
-                    <a href="">
                       <div className="room__item">
                         <img src="https://www.coe.int/documents/16695/63022230/Online-education.jpg/ecd788db-d4c0-3688-bab2-630843f09f17?t=1594381553000" alt="" />
                         <div className="room__activity">
@@ -252,10 +247,8 @@ const Start: React.FC<Props> = () => {
                         </div>
                         <a href="">Join</a>
                       </div>
-                    </a>
                   </li>
                   <li>
-                    <a href="">
                       <div className="room__item">
                         <img src="https://blog.coursify.me/wp-content/uploads/2019/09/online-education-coursifyme.jpg" alt="" />
                         <div className="room__activity">
@@ -263,10 +256,8 @@ const Start: React.FC<Props> = () => {
                         </div>
                         <a href="">Join</a>
                       </div>
-                    </a>
                   </li>
                   <li>
-                    <a href="">
                       <div className="room__item">
                         <img src="https://www.coe.int/documents/16695/63022230/Online-education.jpg/ecd788db-d4c0-3688-bab2-630843f09f17?t=1594381553000" alt="" />
                         <div className="room__activity">
@@ -274,10 +265,8 @@ const Start: React.FC<Props> = () => {
                         </div>
                         <a href="">Join</a>
                       </div>
-                    </a>
                   </li>
                   <li>
-                    <a href="">
                       <div className="room__item">
                         <img src="https://blog.coursify.me/wp-content/uploads/2019/09/online-education-coursifyme.jpg" alt="" />
                         <div className="room__activity">
@@ -285,7 +274,6 @@ const Start: React.FC<Props> = () => {
                         </div>
                         <a href="">Join</a>
                       </div>
-                    </a>
                   </li>
                 </ul>
               </div>

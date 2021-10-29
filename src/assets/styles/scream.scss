@@ -15,7 +15,7 @@
 
 .lives__steam__now {
   width: 310px;
-  height: 31vh;
+  height: 32vh;
   background: var(--white);
   margin: 2px;
   border-radius: 5px;
@@ -40,7 +40,17 @@
   width: 305px;
   height: 120px;
   object-fit: cover;
-  padding: 5px;
+  padding: 3px;
+  background: var(--white);
+  border-radius: 5px;
+}
+
+.scream__live__items img:hover {
+  width: 305px;
+  height: 120px;
+  object-fit: cover;
+  padding: 3px;
+  background: var(--primary);
   border-radius: 5px;
 }
 
@@ -71,7 +81,18 @@
 .follower__channel__item img {
   width: 85px;
   height: auto;
-  padding: 7px;
+  margin-bottom: 7px;
+  padding: 2px;
+  background: var(--white);
+  border-radius: 5px;
+}
+
+.follower__channel__item img:hover {
+  width: 85px;
+  height: auto;
+  padding: 2px;
+  margin-bottom: 7px;
+  background: var(--primary);
   border-radius: 5px;
 }
 
@@ -117,9 +138,18 @@
 .scream__user__profile img {
   width: 65px;
   height: 65px;
-  padding: 1px;
+  padding: 2px;
   object-fit: cover;
   background: var(--white);
+  border-radius: 50%;
+}
+
+.scream__user__profile img:hover {
+  width: 65px;
+  height: 65px;
+  padding: 2px;
+  object-fit: cover;
+  background: var(--primary);
   border-radius: 50%;
 }
 
@@ -160,7 +190,6 @@
   right: 5px;
   bottom: -9.5rem;
   padding: 1px 5px 1px 5px;
-  // box-shadow: 0 0.5rem 0.1rem rgb(0 0 0 / 20%);
   transition: all 500ms ease-in-out;
   color: white;
 }
@@ -173,6 +202,14 @@
 .scream__content p {
   margin-top: 15px;
   font-weight: 200;
+  padding: 3px;
+}
+
+.scream__content p:hover {
+  background: var(--darkgrey);
+  border-radius: 10px;
+  padding: 3px;
+  color: var(--primary);
 }
 
 
@@ -229,7 +266,7 @@
 
 
 .scream .side__icons span:hover {
-  color: teal;
+  color: var(--primary);
 }
 
 .scream:hover .side__icons {
@@ -275,6 +312,16 @@
   width: 100px;
   height: 120px;
   margin: 2px;
+  padding: 2px;
+  background: var(--white);
+}
+
+.scream__product__item img:hover {
+  width: 100px;
+  height: 120px;
+  margin: 2px;
+  padding: 2px;
+  background: var(--primary);
 }
 
 .scream__product__action p {
@@ -309,8 +356,19 @@
 .scream__shope__item img {
   width: 80px;
   height: auto;
-  padding: 7px;
-  border-radius: 15px;
+  padding: 2px;
+  margin: 3px 5px 0 5px;
+  background: var(--white);
+  border-radius: 10px;
+}
+
+.scream__shope__item img:hover {
+  width: 80px;
+  height: auto;
+  padding: 2px;
+  margin: 3px 5px 0 5px;
+  background: var(--primary);
+  border-radius: 10px;
 }
 
 .scream__shope__action p {

@@ -19,11 +19,6 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/index.js"
     ],
-    "/Screams": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/chunks/pages/Screams.js"
-    ],
     "/_app": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",

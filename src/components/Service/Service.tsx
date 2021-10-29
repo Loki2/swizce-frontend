@@ -130,8 +130,14 @@ const Service: React.FC<Props> = () => {
                 </li> 
                 <li>
                   <a href="#">
-                    <i className="ti-music-alt" />
+                    <i className="ti-layout-grid2" />
                     Restaurant And Bars
+                  </a>
+                </li> 
+                <li>
+                  <a href="#">
+                    <i className="ti-music-alt" />
+                    Multimedia & Modelling
                   </a>
                 </li> 
                 <li>
