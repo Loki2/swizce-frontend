@@ -20,6 +20,7 @@
   margin: 2px;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: 0px 2px 5px var(--darkgrey);
   padding: 3px;
   margin-bottom: 15px;
 }
@@ -61,6 +62,7 @@
   margin: 2px;
   border-radius: 5px;
   overflow: hidden;
+  box-shadow: 0px 2px 5px var(--darkgrey);
   padding: 3px;
   margin-bottom: 15px;
 }
@@ -125,6 +127,7 @@
   display: block;
   position: relative;
   background: var(--white);
+  box-shadow: 0px 2px 5px var(--darkgrey);
   margin-bottom: 10px;
   border-radius: 5px;
 }
@@ -292,6 +295,7 @@
   background: var(--white);
   border-radius: 5px;
   margin-bottom: 15px;
+  box-shadow: 0px 2px 5px var(--darkgrey);
   overflow: hidden;
 }
 
@@ -336,6 +340,7 @@
   background: var(--white);
   border-radius: 5px;
   margin-bottom: 15px;
+  box-shadow: 0px 2px 5px var(--darkgrey);
   overflow: hidden;
   height: 35vh;
 }

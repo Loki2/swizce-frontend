@@ -104,6 +104,15 @@ const Signin: React.FC<Props> = () => {
                   <span onClick={() => handleAuthAction('request')}>
                     Click here
                   </span>
+                </p><br />
+                <p>
+                  OR
+                </p><br />
+                <p>
+                  Send OTP?{" "}
+                  <span onClick={() => console.log("OTP authentication")}>
+                    OTP
+                  </span>
                 </p>
             </div>
             

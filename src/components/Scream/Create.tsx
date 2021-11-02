@@ -47,18 +47,6 @@ const Create: React.FC<Props> = ({ userId }) => {
 
   console.log("files", files)
 
-  /* Import s3 config object and call the constrcutor */
-  // const s3 = new ReactS3Client(s3Config);
-
-  // const fileList = s3.listFiles()
-
-  // console.log(fileList)
-
-
-
-
-
-
   const submitCreateScream = handleSubmit(async ({ description, imageUrl }) => {
     try {
       const results = await createScream({ variables: { description, imageUrl }});
@@ -68,7 +56,7 @@ const Create: React.FC<Props> = ({ userId }) => {
 
         if(createScream){
           handleAuthAction('close');
-
+          
           //push user to their dashboard page
           router.push('/Screams')
         }
@@ -108,11 +96,11 @@ const Create: React.FC<Props> = ({ userId }) => {
              rows={7} 
              maxLength={515}
              ref={register({
-               required: "Scream Description required ...!",
-               minLength: {
-                value: 3,
-                message: "Scream Description be at least 3 characters.",
-              },
+              //  required: "Scream Description required ...!",
+              //  minLength: {
+              //   value: 3,
+              //   message: "Scream Description be at least 3 characters.",
+              // },
               maxLength: {
                 value: 515,
                 message: "Scream Description must not be more than 515 characters",
