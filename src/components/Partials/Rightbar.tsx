@@ -5,31 +5,23 @@ import { AuthContext } from "../../context/AuthContext";
 // import { Profile } from '../../types';
 import { VscAccount, VscMail, VscHeart } from 'react-icons/vsc';
 import { MdPhone, MdQuestionAnswer, MdHelpOutline } from "react-icons/md";
+import { Profile } from '../../types';
 
 interface Props {
-  // profile: Profile
+  profile: Profile
 }
 
-const Rightbar: React.FC<Props> = () => {
-  const { loggedInUser  } = useContext(AuthContext);
+const Rightbar: React.FC<Props> = ({ profile }) => {
+  // console.log("my profile:", profile)
 
-  // const {data, loading, error } = useQuery<{ myProfile: Profile }>(QUERY_MYPROFILE, { fetchPolicy: 'network-only'});
-
-
-  // if(error) console.log("Can not refresh profile");
-
-  // if(loading) console.log("Profile is loading ...");
-  
-  // console.log("user loggedin profile: ", data);
-
-
-  return !loggedInUser ? (
+  return !profile ? (
+    // if user does not have profile
     <section className="rightbar">
-         {/* Right bar */}
+      {/* Right bar */}
         <div className="rightbar Profile">
           <div className="profile">
             <a>
-              <img src="https://res.cloudinary.com/swizce/image/upload/v1620702350/Swizce/icons/test_roevfj.jpg"  />
+              <img src="https://res.cloudinary.com/swizce/image/upload/v1636603317/Swizce/icons/no-image_md4u0i.png"  />
             </a>            
           </div>
           <div className="biography">
@@ -70,34 +62,33 @@ const Rightbar: React.FC<Props> = () => {
           </div> */}
           <div className="profile">
             <a onClick={() => console.log("Create User Stories")} >
-              <img src={loggedInUser.profile.profileUrl}  />
+              <img src={profile.profile.profileUrl}  />
             </a>            
           </div>
           <div className="biography">
-            <p>{loggedInUser.profile.firstname} {loggedInUser.profile.lastname}</p>
+            <p>{profile.profile.firstname} {profile.profile.lastname}</p>
             {/* <p>the world is not for some one only</p> */}
           </div>
           <div className="profile-action">
             <a href="/">
-              <VscAccount size={28} color="white" />
+              <VscAccount size={28} color="teal" />
             </a>
             <a href="/">
-              <VscMail size={28} color="white" />
+              <VscMail size={28} color="teal" />
             </a>
             <a href="/">
-              <VscHeart size={28} color="white" />
+              <VscHeart size={28} color="teal" />
             </a>
           </div>
           <div className="footer-action">
             <a href="#">
-              <MdPhone size={44} color="white"/>
+              <MdPhone size={38} color="grey"/>
             </a><br />
+            <a href="/Messagers">
+              <MdQuestionAnswer size={38} color="grey"/>
+            </a><br /><br />            
             <a href="#">
-              <MdQuestionAnswer size={44} color="white"/>
-            </a><br /><br />
-            
-            <a href="#">
-              <MdHelpOutline size={44} color="white"/>
+              <MdHelpOutline size={38} color="grey"/>
             </a>
           </div>
         </div>

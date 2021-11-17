@@ -1,3 +1,5 @@
+@import './varables';
+
 .profile__page{
   width: 100%;
   margin: 0;
@@ -7,10 +9,9 @@
 }
 
 .user__profile__info {
-  // width: 1200px;
   margin: 0 230px 0 230px;
-  background: #ffffff;
   border-radius: 5px;
+  box-shadow: 0px 2px 5px var(--darkgrey);
 }
 
 .user__media__info {
@@ -59,6 +60,7 @@
   margin: 2px 230px 2px 230px;
   background: var(--white);
   border-radius: 5px;
+  box-shadow: 0px 2px 5px var(--darkgrey);
 }
 
 .navigation__tabs h1 {
@@ -75,6 +77,7 @@
   background: var(--white);
   margin: 7px 0 0 2px;
   border-radius: 5px;
+  box-shadow: 0px 2px 5px var(--darkgrey);
 }
 
 
@@ -86,6 +89,7 @@
   background: var(--white);
   border-radius: 5px;
   margin-bottom: 5px;
+  box-shadow: 0px 2px 5px var(--darkgrey);
 }
 
 .user__activity__item li {
@@ -133,13 +137,6 @@
   border-radius: 5px;
 }
 
-// .user__owner_scream {
-//   background: #ffffff;
-//   padding: 5px;
-//   border-radius: 5px;
-//   margin: 0px 12px 0px 0;
-// }
-
 .user__more__actions {
   width: 317px;
 }
@@ -147,10 +144,11 @@
 
 
 .user__base__information__item {
-  background: #ffff;
+  background: var(--white);
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 5px;
+  box-shadow: 0px 2px 5px var(--darkgrey);
 }
 
 .user__base__information__item li {
@@ -169,15 +167,16 @@
 }
 
 .user__subscriber__action__item {
-  background: #ffff;
+  background: var(--white);
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 5px;
   display: flex;
+  box-shadow: 0px 2px 5px var(--darkgrey);
 }
 
 .user__subscriber__action__item li {
-  padding: 0px 0px 20px 0px;
+  padding: 0px 0px 15px 0px;
 }
 
 .user__subscriber__action__item a {
@@ -192,11 +191,12 @@
 }
 
 .user__friends__list__item {
-  background: #ffff;
+  background: var(--white);
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 5px;
   display: flex;
+  box-shadow: 0px 2px 5px var(--darkgrey);
 }
 
 .user__friends__list__item li {

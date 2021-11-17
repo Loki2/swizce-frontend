@@ -37,7 +37,6 @@ const Profile: React.FC<Props> = (props: Props) => {
         <section className="user__scream__post">
           <div className="user__activity__list">
             <h2>My Activities</h2>
-            <hr />
             <div className="user__activity__item">
               <ul>
                 <li>

@@ -43,7 +43,7 @@ const Services: React.FC<Props> = () => {
     <>
     {!loggedInUser ? <div></div> : <Sidebar />}
       <Service />
-    {!loggedInUser ? <div></div> : <Rightbar />}
+    {!loggedInUser ? <div></div> : <Rightbar profile={loggedInUser} />}
     </>
   );
 };

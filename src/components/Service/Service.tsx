@@ -321,7 +321,7 @@ const Service: React.FC<Props> = () => {
                 <li>
                   <a href="">
                     <div className="service__sponsors__item">
-                      <img src="https://a-static.besthdwallpaper.com/2021-kena-with-beni-saiya-kena-bridge-of-spirits-video-game-wallpaper-75119_L.jpg" alt="" />
+                      <img src="https://d2ofqe7l47306o.cloudfront.net/games/1920x1080/kena-bridge-of-spirits-rot-wisp.jpg" alt="" />
                     </div>
                   </a>
                 </li>

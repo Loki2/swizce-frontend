@@ -45,7 +45,7 @@ const Signin: React.FC<Props> = () => {
          
           if(isAdmin(user)) {
              //push user to Admin page
-            router.push('/Admin')
+            router.push('https://developer.swizce.com/admin')
           } else {
              //push user to their dashboard page
             router.push('/Screams')
@@ -130,7 +130,11 @@ const Signin: React.FC<Props> = () => {
                 </button>
             </div>
             {
-                error && <div>{error.graphQLErrors[0]?.message || <span style={styles.errorMessage} role="alert">Something went wrong...!</span>}</div>
+                error && <div>
+                  <span style={styles.errorMessage} role="alert">
+                    { error.graphQLErrors[0]?.message || 'Something went wrong...!'}
+                    </span>
+                  </div>
             }
           <div className="form__control">
             <a>

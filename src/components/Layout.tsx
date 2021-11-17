@@ -22,7 +22,7 @@ interface Props {}
 const Layout: React.FC<Props> = ({ children }) => {
   const { authAction, handleAuthAction, loggedInUser } = useContext(AuthContext);
 
-  console.log("User Logged in from layout!:", loggedInUser);
+  // console.log("User Logged in from layout!:", loggedInUser);
 
   const { asPath, replace, pathname, query  } = useRouter();
 
@@ -56,9 +56,9 @@ const Layout: React.FC<Props> = ({ children }) => {
           <link href='https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto&display=swap'rel='stylesheet'/>
       </Head>
       
-      <Navigation />
+      <Navigation user={loggedInUser} />
         <>
-        {children}
+          {children}
         </>
         {
           authAction !== 'close' && (
@@ -104,13 +104,12 @@ const Layout: React.FC<Props> = ({ children }) => {
                 authAction === 'create-service' && (
                   <>
                   <Backdrop />
-                  <AddService  />
+                  <AddService userId={loggedInUser.id} />
                   </>
                 )}
             </>
           )
-        }
-      
+        }      
     </>
   )
 }

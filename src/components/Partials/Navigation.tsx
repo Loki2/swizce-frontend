@@ -4,19 +4,22 @@ import { AuthContext } from "../../context/AuthContext";
 import { isAdmin } from "../../helpers/authHelper";
 import { SIGN_OUT } from '../../graphql/User';
 import { useRouter } from 'next/router';
+import { User } from "../../types";
 
-interface NavigationProps {}
+interface NavigationProps {
+  user: User
+}
 
-const Navigation: React.FC<NavigationProps> = () => {
+const Navigation: React.FC<NavigationProps> = ({ user }) => {
   
-  const { handleAuthAction, loggedInUser, setAuthUser } = useContext(AuthContext);
+  const { handleAuthAction, setAuthUser } = useContext(AuthContext);
 
   const [signout] = useMutation<{signout: {message: string}}>(SIGN_OUT);
 
   const router = useRouter();
 
   
-  console.log("User Logged in on Navigation!:", loggedInUser);
+  // console.log("User Logged in on Navigation!:", loggedInUser);
 
   //create call singout function
   const handleSignout = async () => {
@@ -39,7 +42,7 @@ const Navigation: React.FC<NavigationProps> = () => {
   }
 
   //  console.log("user logged in:", loggedInUser)
-  return !loggedInUser ? (
+  return !user ? (
     <>
       <div className="navigation__not__authorize">
         <div className="navigation__logo">

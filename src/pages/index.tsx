@@ -29,7 +29,7 @@ const Start: React.FC<Props> = () => {
   }); //<{ screams: Scream[], user: User }>
 
 
-  console.log("Screame data:", data);
+  // console.log("Scream data:", data);
 
   useEffect(() => {
     //if user is not authenticated pusg to home page
@@ -54,6 +54,7 @@ const Start: React.FC<Props> = () => {
           <div className="swizce__slogan">
             <img src="https://res.cloudinary.com/swizce/image/upload/v1620702365/Swizce/icons/swizce_aez2ms.png" height="34px" />
             <p>Just do one more thing...! <br /> Forward to your goal :) </p>
+            <p>ຂໍພຽງລົງມືເຮັດ...! <br /> ອິກໜື່ງບາດກ່າວສູ່ຄວາມສຳເລັດ :)</p>
             <br />
             <hr />
             <div className="swizce__slogan__action">
@@ -280,7 +281,7 @@ const Start: React.FC<Props> = () => {
             </div>
         </section>
       </div>
-      {!loggedInUser ? <div></div> : <Rightbar />}
+      {!loggedInUser ? <div></div> : <Rightbar profile={loggedInUser} />}
     </>
   )
 }

@@ -142,7 +142,11 @@ const Signup: React.FC<Props> = () => {
             }
             </button>
             {
-              error && <div>{error.graphQLErrors[0]?.message || <p style={styles.errorMessage}>Sorry something went wrong...!</p>}</div>
+              error && <div>
+                <span style={styles.errorMessage} role="alert">
+                  {error.graphQLErrors[0]?.message || 'Sorry something went wrong...!'}
+                </span>  
+              </div>
             }
             </div>
 

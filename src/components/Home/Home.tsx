@@ -22,10 +22,10 @@ const Home: React.FC<Props> = ({ scream }) => {
           {/* user profile for who scream */}
           <div className="home__user__profile">
             {
-              scream.user.profile ? 
-              <img src={scream.user.profile.profileUrl} alt="" />
-              :
+              !scream.user.profile ? 
               <img src="http://www.thejungleadventure.com/assets/images/noimage/noimage.png" alt="" />
+              :
+              <img src={scream.user.profile.profileUrl} alt="" />
             }
           </div>
 

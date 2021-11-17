@@ -6,7 +6,7 @@ import Loader from "react-loader-spinner";
 import { QUERY_SCREAMS } from "../../graphql/Scream";
 
 import Screams from "../../components/Scream/Screams";
-import { Scream } from "../../types";
+// import { Scream } from "../../types";
 import Rightbar from "../../components/Partials/Rightbar";
 import Sidebar from "../../components/Partials/Sidebar";
 
@@ -24,7 +24,8 @@ const ScreamPage: React.FC<Props> = () => {
     fetchPolicy: "network-only",
   }); //<{ screams: Scream[], user: User }>
 
-  console.log("scream data:", data)
+  // console.log("scream data:", data);
+  
   const router = useRouter();
 
   useEffect(() => {
@@ -256,7 +257,7 @@ const ScreamPage: React.FC<Props> = () => {
             </div>
         </section>
       </div>
-      {!loggedInUser ? <div></div> : <Rightbar />}
+      {!loggedInUser ? <div></div> : <Rightbar profile={loggedInUser} />}
     </>
   );
 };

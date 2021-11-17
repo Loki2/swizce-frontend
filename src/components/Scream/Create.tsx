@@ -5,16 +5,13 @@ import { useRouter } from 'next/router';
 import Modal from "../Modal/Modal";
 import { CreateScreamArgs, Scream } from '../../types';
 
-// import ReactS3Client from 'react-aws-s3-typescript';
-// import { s3Config } from '../../s3/s3Config';
-
-
 import {FileError, FileRejection, useDropzone} from 'react-dropzone';
 import { AuthContext } from "../../context/AuthContext";
 
 import { CREATE_SCREAM } from '../../graphql/Scream';
 import Loader from "react-loader-spinner";
-import { UploadItems } from "./uploads/Upload";
+// import { UploadItems } from "./uploads/Upload";
+import { AwsUpload } from "./uploads/AwsUpload";
 // import { UploadItems } from "./uploads/UploadItem";
 
 interface Props {
@@ -34,7 +31,9 @@ const Create: React.FC<Props> = ({ userId }) => {
 
 
   const [files, setFiles] = useState<UploadableFile[]>([]);
+
   const { register, errors, handleSubmit } = useForm<CreateScreamArgs>();
+
   const [ createScream, { loading, error }] = useMutation<{ createScream: Scream }, CreateScreamArgs>(CREATE_SCREAM)
 
   const onDrop = useCallback((accFile: File[], rejFile: FileRejection[]) => {
@@ -45,7 +44,7 @@ const Create: React.FC<Props> = ({ userId }) => {
 
   const {getRootProps, getInputProps, open} = useDropzone({noClick: true, noKeyboard: true, onDrop });
 
-  console.log("files", files)
+  // console.log("files", files)
 
   const submitCreateScream = handleSubmit(async ({ description, imageUrl }) => {
     try {
@@ -72,7 +71,7 @@ const Create: React.FC<Props> = ({ userId }) => {
     <Modal>
       <form onClick={submitCreateScream}>
         <div className="create__header">
-          <h4>Create Scream</h4>
+          <h4>Create Scream/ສ້າງ scream</h4>
         </div>
         {/* Retrived Logged In User */}
         <div className="create__nav">
@@ -96,17 +95,20 @@ const Create: React.FC<Props> = ({ userId }) => {
              rows={7} 
              maxLength={515}
              ref={register({
-              //  required: "Scream Description required ...!",
-              //  minLength: {
-              //   value: 3,
-              //   message: "Scream Description be at least 3 characters.",
-              // },
-              maxLength: {
-                value: 515,
-                message: "Scream Description must not be more than 515 characters",
-              },
+                required: "Scream Description required ...!",
+                maxLength: {
+                  value: 515,
+                  message: "Scream Description must not be more than 515 characters",
+                },
              })}             
             ></textarea>
+            <input
+                  placeholder = 'Your Image Url...!'
+                  name= 'imageUrl'
+                  ref = { register({
+                    required: 'image url is required'
+                  })} 
+            />
             <br />            
             <span className="textarea__count">0/515(Charecters)</span>
             <br />
@@ -117,7 +119,7 @@ const Create: React.FC<Props> = ({ userId }) => {
                 <input {...getInputProps()} />
                 {
                   files.map((fileWrapper, idx) => (
-                    <UploadItems key={idx} file={fileWrapper.file} />
+                    <AwsUpload key={idx} file={fileWrapper.file} />
                   ))
                 }
               </div>            

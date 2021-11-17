@@ -21,6 +21,25 @@ export interface User {
   }
 }
 
+export interface Profile {
+  id: string,
+  username: string,
+  email: string,
+  profile: {
+    id: string,
+    firstname: string,
+    lastname: string,
+    bios: string,
+    age: string,
+    birthdate: string,
+    gender: string,
+    mentalStatus: string,
+    profileUrl: string,
+    coverUrl: string,
+    createdAt: string
+  }
+}
+
 export interface Scream {
   id: string,
   imageUrl: string,

@@ -13,6 +13,7 @@ interface Props {
 const Screams: React.FC<Props> = ({ scream }) => {
   dayjs.extend(relativeTime);
 
+
   const router = useRouter();
 
   return (
@@ -27,10 +28,10 @@ const Screams: React.FC<Props> = ({ scream }) => {
           {/* user profile for who scream */}
           <div className="scream__user__profile">
             {
-              scream.user.profile ? 
-              <img src={scream.user.profile.profileUrl} alt="" />
-              :
+              !scream.user.profile ? 
               <img src="http://www.thejungleadventure.com/assets/images/noimage/noimage.png" alt="" />
+              :
+              <img src={scream.user.profile.profileUrl} alt="" />
             }            
           </div>
           {/* More functionality */}

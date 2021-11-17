@@ -16,8 +16,7 @@ interface AuthContextValues {
   authAction: Actions
   handleAuthAction: HandleAuthAction
   loggedInUser: User | null
-  setAuthUser: (user: User | null) => void
-  
+  setAuthUser: (user: User | null) => void  
 }
 
 const initialState: AuthContextValues = {
@@ -39,7 +38,7 @@ const AuthContextProvider: React.FC<Props> = ({ children }) => {
     if(data?.myInfo) setLoggedInUser(data.myInfo)
   }, [data?.myInfo]);
 
-  console.log("user data: ", data)
+  // console.log("user data from context: ", data)
 
   //Signout sync effect
   useEffect(() => {

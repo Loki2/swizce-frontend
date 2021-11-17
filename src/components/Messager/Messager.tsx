@@ -1,25 +1,27 @@
 import React from "react";
-import Navigation from "../Partials/Navigation";
-import Rightbar from "../Partials/Rightbar";
-import Sidebar from "../Partials/Sidebar";
-
 
 interface Props {}
 
-const Messager = (props: Props) => {
+const Messager: React.FC<Props> = () => {
   return (
-    <div>
-      <Navigation />
-      {/* sidebar menu */}
-      <Sidebar />
-      <section className="main">
-        {/* main container */}
-        <div className="container">
-          <h1>List Messager Over Here</h1>
-        </div>
-      </section>
-      <Rightbar />
-    </div>
+      <div className="messager__content">
+        <section className="messager__main__left">
+          <div className="container">
+            <h4>Chats</h4>
+          </div>
+        </section>
+        <section className="messager__main">
+          <div className="container">
+            <h4>Messager</h4>
+          </div>
+        </section>
+
+        <section className="messager__main__right">
+          <div className="container">
+            <h4>Group, Rooms, Files</h4>
+          </div>
+        </section>
+      </div>
   );
 };
 
