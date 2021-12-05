@@ -35,10 +35,9 @@ const AuthContextProvider: React.FC<Props> = ({ children }) => {
   const { data } = useQuery<{myInfo: User}>(MY_INFO);
 
   useEffect(() => {
-    if(data?.myInfo) setLoggedInUser(data.myInfo)
+    if(data?.myInfo) setLoggedInUser(data?.myInfo)
   }, [data?.myInfo]);
 
-  // console.log("user data from context: ", data)
 
   //Signout sync effect
   useEffect(() => {

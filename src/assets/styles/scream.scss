@@ -129,7 +129,7 @@
   background: var(--white);
   box-shadow: 0px 2px 5px var(--darkgrey);
   margin-bottom: 10px;
-  padding: 0 0 65px 0;
+  padding: 0 0 85px 0;
   border-radius: 5px;
 }
 
@@ -137,6 +137,8 @@
   top: 10px;
   position: absolute;
   margin-left: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .scream__user__profile img {
@@ -168,54 +170,56 @@
   margin-bottom: 15px;
 }
 
-.scream__container .public_time {
-  padding: 3px;
-  background: var(--primary);
-  border-radius: 15px;
-}
-
-.scream__container .public_time:hover {
-  padding: 3px;
-  background: #BDDAE0;
-  border-radius: 15px;
-  color: teal;
-}
-
 .scream__media img {
   width: 765px;
   height: 825px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
+}
+
+.scream__user__info {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  background: var(--darkgrey);
+  border-radius: 7px;
+  padding: 5px;
+  bottom: 97px;
+  left: 10px;
+}
+
+.scream__user__info h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--primary);
+  margin-right: 10px;
+}
+
+.scream__user__info h4 {
+  font-size: 12px;
+  color: var(--primary);
+  margin-top: 1px;
+  border-radius: 15px;
+  font-weight: 200;
 }
 
 .scream__content {
   position: absolute;
   left: 5px;
   right: 5px;
-  bottom: -9.5rem;
   padding: 1px 5px 1px 5px;
   transition: all 500ms ease-in-out;
-  color: var(--white);
+  color: var(--primary);
 }
 
 .scream:hover .scream__content {
-  bottom: 2rem;
   transition: all 500ms ease-in-out;
 }
 
 .scream__content p {
-  margin-top: 15px;
   font-weight: 200;
   padding: 3px;
 }
-
-// .scream__content p:hover {
-//   background: var(--darkgrey);
-//   border-radius: 10px;
-//   padding: 3px;
-//   color: var(--primary);
-// }
-
 
 .play__scream {
   position: absolute;
@@ -226,7 +230,7 @@
   padding: 6px 5px 4px 10px;
   box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
   transform: all 300ms ease-in-out;
-  color: teal;
+  color: var(--primary);
 }
 
 .scream:hover .play__scream {
@@ -234,7 +238,7 @@
 }
 
 .scream:hover .play__scream:hover {
-  background-color: teal;
+  background-color: var(--primary);
   color: white;
 }
 

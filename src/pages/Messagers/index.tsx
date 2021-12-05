@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react'
 import Messager from '../../components/Messager/Messager';
 import { useRouter } from 'next/router';
-import Loader from "react-loader-spinner";
 
 import { AuthContext } from '../../context/AuthContext';
 import Sidebar from '../../components/Partials/Sidebar';
 import Rightbar from '../../components/Partials/Rightbar';
+import Index from '../../components/Index';
 
 interface Props {
   
@@ -24,26 +24,16 @@ const MessagerPage = (props: Props) => {
     }
   },[loggedInUser])
   return !loggedInUser ? (
-    <div className="display__page">
-      <section className="main">
-        <Loader
-          type="Oval"
-          color="teal"
-          height={50}
-          width={50}
-          timeout={30000}
-        />
-      </section>
-    </div>
-  ):(
-    <>
-      {!loggedInUser ? <div></div> : <Sidebar />}
-        <div className="messager__page">
-          <Messager />
-        </div>
-      {!loggedInUser ? <div></div> : <Rightbar profile={loggedInUser}/>}
-    </>
-  )
+      <Index />
+      ):(
+        <>
+          {!loggedInUser ? <div></div> : <Sidebar />}
+            <div className="messager__page">
+              <Messager />
+            </div>
+          {!loggedInUser ? <div></div> : <Rightbar user={loggedInUser}/>}
+        </>
+      )
 }
 
 export default MessagerPage;

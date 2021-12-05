@@ -1,13 +1,14 @@
 import React from "react";
-import { Scream } from "../../types";
+import { Scream, User } from "../../types";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 
 interface Props {
-  scream: Scream
+  scream: Scream,
+  user: User
 }
 
-const Home: React.FC<Props> = ({ scream }) => {
+const Home: React.FC<Props> = ({ scream, user }) => {
   dayjs.extend(relativeTime);
   return (
     <>
@@ -22,11 +23,12 @@ const Home: React.FC<Props> = ({ scream }) => {
           {/* user profile for who scream */}
           <div className="home__user__profile">
             {
-              !scream.user.profile ? 
-              <img src="http://www.thejungleadventure.com/assets/images/noimage/noimage.png" alt="" />
+              !scream.user.images ? 
+              <img src="https://res.cloudinary.com/swizce/image/upload/v1636603317/Swizce/icons/no-image_md4u0i.png" alt="" />
               :
-              <img src={scream.user.profile.profileUrl} alt="" />
+              <img src={scream.user.images} alt="" />
             }
+              
           </div>
 
           <div className="__scream__content">
@@ -41,17 +43,40 @@ const Home: React.FC<Props> = ({ scream }) => {
           <div className="play__scream">
             <i className="ti-control-play" />
           </div>
-          <ul className="side__icons">
-            <span>
-              <i className="ti-heart" />
-            </span>
-            <span>
-              <i className="ti-comment" />
-            </span>
-            <span>
-              <i className="ti-rss-alt" />
-            </span>
-          </ul>
+          {
+            user && user.id === scream.user.id ? (
+              <ul className="side__icons">
+                <span>
+                  <i className="ti-settings" />
+                </span><br />
+                <span>
+                  <i className="ti-heart" />
+                </span>
+                <span>
+                  <i className="ti-comment" />
+                </span>
+                <span>
+                  <i className="ti-rss-alt" />
+                </span>
+                <span>
+                  <i className="ti-close" />
+                </span>
+              </ul>
+            ):(
+              <ul className="side__icons">
+                <span>
+                  <i className="ti-heart" />
+                </span>
+                <span>
+                  <i className="ti-comment" />
+                </span>
+                <span>
+                  <i className="ti-rss-alt" />
+                </span>
+              </ul>
+            )
+          }
+          
         </div>
       </div>
     </>

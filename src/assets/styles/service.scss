@@ -125,7 +125,7 @@
   width: 975px;
   height: 375px;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
 }
 
 
@@ -228,7 +228,7 @@
 
 .__service__cover__upload img {
   width: 875px; 
-  height: 295px;
+  height: 250px;
   object-fit: cover;
   padding: 5px;
   border-radius: 10px;
@@ -318,13 +318,13 @@
 }
 
 .create__bottom__acctions {
-  margin-top: 7px;
+  margin: 0px 0px 15px 0px;
 }
 
 .create__bottom__acctions button {
-  width: 83%;
+  width: 84%;
   padding: 7px 0 5px 0;
-  margin-left: 96px;
+  margin-left: 94px;
   background: var(--primary);
   color: white;
   border: none;

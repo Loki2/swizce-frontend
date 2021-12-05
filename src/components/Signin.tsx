@@ -9,8 +9,7 @@ import Loader from 'react-loader-spinner';
 import Modal from './Modal/Modal';
 import { AuthContext } from "../context/AuthContext";
 import { isAdmin } from '../helpers/authHelper';
-
-
+import { QUERY_SCREAMS } from '../graphql/Scream';
 
 interface Props {}
 
@@ -28,7 +27,7 @@ const Signin: React.FC<Props> = () => {
 
   const handleSignin = handleSubmit( async ({ email, password }) => {
     try {
-      const response = await signin({ variables: {email, password}});
+      const response = await signin({ variables: {email, password}, refetchQueries: [{ query: QUERY_SCREAMS, }]});
      
       if(response?.data?.signIn) {
           const user = response.data.signIn;
@@ -45,10 +44,10 @@ const Signin: React.FC<Props> = () => {
          
           if(isAdmin(user)) {
              //push user to Admin page
-            router.push('https://developer.swizce.com/admin')
+            router.push('http://localhost:3001')
           } else {
              //push user to their dashboard page
-            router.push('/Screams')
+            router.push('/')
           }
       }
     } catch (error) {

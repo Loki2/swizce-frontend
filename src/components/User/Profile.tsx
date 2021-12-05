@@ -1,305 +1,57 @@
-import React from 'react'
+import React from "react";
 import { useRouter } from "next/router";
+import { User } from "../../types";
+import { QUERY_MYPROFILE } from "../../graphql/User";
+import { useQuery } from "@apollo/client";
+
 
 interface Props {
-  
+  user: User;
 }
 
-const Profile: React.FC<Props> = (props: Props) => {
-  let getYear = () => {
-    let currentYear = new Date().getFullYear();
-      return currentYear;
-  };
+const Profile: React.FC<Props> = ({ user }) => {
 
-  const router = useRouter();
+  const { data, loading, error } = useQuery(QUERY_MYPROFILE, {
+    fetchPolicy: "network-only",
+  });
+
+  if(loading) return <p>Loading....!</p>
+  if(error) return <p>Ooooops....!</p>
+
+  const myprofile = data.myprofile;
 
   return (
-    <>
-      <div className="profile__page">
-        <section className="user__profile__info">
-          <div className="user__media__info">
-            <div className="user__cover">
-              <img src="https://wallpapercave.com/wp/wp3703397.jpg" alt="" />
-            </div>
-            <div className="user__profile">
-              <img src="https://res.cloudinary.com/swizce/image/upload/v1620702350/Swizce/icons/test_roevfj.jpg" alt="" />
-            </div>
-          </div>
-          <div className="user__name">
-            <h2>Loki Rixnickz</h2>
-          </div>
-        </section>
-        <section className="user__profile__navigation">
-          <div className="navigation__tabs">
-            <h1>Navigation</h1>
-          </div>
-        </section>
-        <section className="user__scream__post">
-          <div className="user__activity__list">
-            <h2>My Activities</h2>
-            <div className="user__activity__item">
-              <ul>
-                <li>
-                  <a href="#">
-                    <i className="ti-shopping-cart-full" />
-                    Go Shopping
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="ti-flag" />
-                    Work From Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="ti-cut" />
-                    Feed Pets
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="ti-heart" />
-                    Go For Walk
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="ti-eraser" />
-                    Read Book
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="ti-home" />
-                    Learn Cooking
-                  </a>
-                </li> 
-                <li>
-                  <a href="#">
-                    <i className="ti-car" />
-                    Study Spainish
-                  </a>
-                </li> 
-              </ul>
-            </div>
-
-            <div className="copy__right__component">
-              <h5>Term of Service, Privacy Policy, <br /> Cookie Policy, Ads info more... </h5>
-              <p>&copy;{getYear()} {" "}| Swizce Inc,</p>
-            </div>
-          </div>
-          
-          <div className="user__owner_scream">
-            <div className="user__scream__list">
-              <div className="user__scream__item">
-                <div className="user__profile__scream">
-                  <div className="user__profile__scream__container">
-                    {/* design scream images template */}
-                    <div className="user__profile__scream__media">
-                      <img src="https://wallpapercave.com/wp/wp3703429.jpg" />
-                    </div>
-
-                    {/* More functionality */}
-                    <ul className="side__icons">
-                      <span>
-                        <i className="ti-heart" />
-                      </span>
-                      <span>
-                        <i className="ti-comment" />
-                      </span>
-                      <span>
-                        <i className="ti-rss-alt" />
-                      </span>
-                    </ul>
-
-                    {/* Scream Contents */}
-                    <div className="user__profile__scream__content">
-                      <h2 onClick={() => router.push(`/user/$`)}>
-                        @<strong>Loki Rixnickz</strong>{" "}
-                      </h2>
-                      <span className="public_time">3 hours ago</span>
-                      <p>the world has changed from your</p>
-                    </div>
-
-                    {/* Scream functionality */}
-                    <div className="user__profile__play__scream">
-                      <i
-                        className="ti-control-play"
-                        onClick={() => router.push(`/Screams/v/_id=?$`)}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div><br />
-              <div className="user__scream__item">
-                <div className="user__profile__scream">
-                  <div className="user__profile__scream__container">
-                    {/* design scream images template */}
-                    <div className="user__profile__scream__media">
-                      <img src="https://wallpapercave.com/wp/wp3703429.jpg" />
-                    </div>
-
-                    {/* More functionality */}
-                    <ul className="side__icons">
-                      <span>
-                        <i className="ti-heart" />
-                      </span>
-                      <span>
-                        <i className="ti-comment" />
-                      </span>
-                      <span>
-                        <i className="ti-rss-alt" />
-                      </span>
-                    </ul>
-
-                    {/* Scream Contents */}
-                    <div className="user__profile__scream__content">
-                      <h2 onClick={() => router.push(`/user/$`)}>
-                        @<strong>Loki Rixnickz</strong>{" "}
-                      </h2>
-                      <span className="public_time">3 hours ago</span>
-                      <p>the world has changed from your</p>
-                    </div>
-
-                    {/* Scream functionality */}
-                    <div className="user__profile__play__scream">
-                      <i
-                        className="ti-control-play"
-                        onClick={() => router.push(`/Screams/v/_id=?$`)}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="user__more__actions">
-            <div className="user__subscriber__action">
-              <div className="user__subscriber__action__item">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <i className="ti-heart" />
-                      Followers
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-comment" />
-                      Talks
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-rss-alt" />
-                      Shares
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="user__base__information">
-              <div className="user__base__information__item">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <i className="ti-shopping-cart-full" />
-                      Market Place
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-flag" />
-                      Cars Modifier
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-cut" />
-                      Electrict Repair
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-heart" />
-                      Salons Beauty
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-eraser" />
-                      House Sweaper
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-home" />
-                      Houses Rent
-                    </a>
-                  </li> 
-                  <li>
-                    <a href="#">
-                      <i className="ti-car" />
-                      Cars Rent
-                    </a>
-                  </li> 
-                </ul>
-              </div>
-            </div>
-            <div className="user__friends__list">
-              <div className="user__friends__list__item">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <i className="ti-shopping-cart-full" />
-                      Market Place
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-flag" />
-                      Cars Modifier
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-cut" />
-                      Electrict Repair
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-heart" />
-                      Salons Beauty
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-eraser" />
-                      House Sweaper
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i className="ti-home" />
-                      Houses Rent
-                    </a>
-                  </li> 
-                  <li>
-                    <a href="#">
-                      <i className="ti-car" />
-                      Cars Rent
-                    </a>
-                  </li> 
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+    <section className="user__profile__info">
+      <div className="user__media__info">
+        <div className="user__cover">
+          {
+            !user.covers ?
+            <img src="https://res.cloudinary.com/swizce/image/upload/v1636603317/Swizce/icons/no-image_md4u0i.png"  />
+            :
+            <img src={user.covers} alt="" />
+          }          
+        </div>
+        <div className="user__profile">
+          {
+            !user.images ? 
+            <img src="https://res.cloudinary.com/swizce/image/upload/v1636603317/Swizce/icons/no-image_md4u0i.png"  />
+            :
+            <img src={user.images} alt="" />
+          }          
+        </div>
       </div>
-    </>
-  )
-}
+      {
+        !myprofile ?
+        <div className="user__name">
+          <h2>@{user.username}</h2>
+        </div>
+        :
+        <div className="user__name__fullname">
+          <h2>{myprofile.firstname} {" "} {myprofile.lastname}</h2>
+        </div>
+      }
+    </section>
+  );
+};
 
-export default Profile
+export default Profile;

@@ -44,7 +44,7 @@ const Signup: React.FC<Props> = () => {
            setAuthUser(signUp);
 
            //push user to their dashboard page
-           router.push('/Dashboard')
+           router.push('/')
          }
       }
     } catch (error) {

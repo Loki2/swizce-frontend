@@ -4,21 +4,10 @@ export interface User {
   id: string,
   username: string,
   email: string,
+  images: string,
+  covers: string,
   roles: Roles[],
-  createdAt: string,
-  profile: {
-    id: string,
-    firstname: string,
-    lastname: string,
-    bios: string,
-    age: string,
-    birthdate: string,
-    gender: string,
-    mentalStatus: string,
-    profileUrl: string,
-    coverUrl: string,
-    createdAt: string
-  }
+  createdAt: string
 }
 
 export interface Profile {
@@ -51,6 +40,19 @@ export interface Scream {
   user: User
 }
 
+
+export interface Service {
+  id: string,
+  name: string,
+  description: string,
+  contact: string,
+  address: string,
+  imageUrl: string,
+  status: string,
+  tags: string,
+  user: User
+}
+
 export interface Song {
   id: string,
   name: string,
@@ -62,9 +64,23 @@ export interface Song {
 }
 
 
+export interface Service {
+		id: string,
+    name: string,
+    description: string,
+    price: number,
+    address: string,
+    contact: string,
+    tags: string,
+    imageUrl: string,
+    logoUrl: string
+}
+
 
 export type SignupArgs = Pick<User, 'username' | 'email'> & { password: string }
 
 export type SigninArgs = Omit<SignupArgs, 'username'>
 
 export type CreateScreamArgs = Pick<Scream, 'description' | 'imageUrl'>
+
+export type CreateServiceArg = Pick<Service, 'name' | 'description' | 'contact' | 'address' | 'tags' | 'imageUrl' | 'logoUrl'>

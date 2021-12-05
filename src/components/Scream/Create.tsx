@@ -8,10 +8,10 @@ import { CreateScreamArgs, Scream } from '../../types';
 import {FileError, FileRejection, useDropzone} from 'react-dropzone';
 import { AuthContext } from "../../context/AuthContext";
 
-import { CREATE_SCREAM } from '../../graphql/Scream';
+import { CREATE_SCREAM, QUERY_SCREAMS } from '../../graphql/Scream';
 import Loader from "react-loader-spinner";
 // import { UploadItems } from "./uploads/Upload";
-import { AwsUpload } from "./uploads/AwsUpload";
+import { AwsUpload } from "./components/AwsUpload";
 // import { UploadItems } from "./uploads/UploadItem";
 
 interface Props {
@@ -27,15 +27,19 @@ export interface UploadableFile {
 //Main Create Scream function
 const Create: React.FC<Props> = ({ userId }) => {
   const { handleAuthAction, loggedInUser } = useContext(AuthContext);
+
   const router = useRouter();
 
 
   const [files, setFiles] = useState<UploadableFile[]>([]);
 
+  //Create form request
   const { register, errors, handleSubmit } = useForm<CreateScreamArgs>();
 
-  const [ createScream, { loading, error }] = useMutation<{ createScream: Scream }, CreateScreamArgs>(CREATE_SCREAM)
+  //create backend function
+  const [ createScream, { loading, error }] = useMutation<{ createScream: Scream }, CreateScreamArgs>(CREATE_SCREAM);
 
+  //Select files and uplaod to cloud storage
   const onDrop = useCallback((accFile: File[], rejFile: FileRejection[]) => {
     const mappedAcc = accFile.map(file => ({file, errors: []}));
 
@@ -48,7 +52,7 @@ const Create: React.FC<Props> = ({ userId }) => {
 
   const submitCreateScream = handleSubmit(async ({ description, imageUrl }) => {
     try {
-      const results = await createScream({ variables: { description, imageUrl }});
+      const results = await createScream({ variables: { description, imageUrl }, refetchQueries: [{ query: QUERY_SCREAMS }]});
 
       if(results?.data?.createScream){
         const {createScream} = results.data;
@@ -71,14 +75,20 @@ const Create: React.FC<Props> = ({ userId }) => {
     <Modal>
       <form onClick={submitCreateScream}>
         <div className="create__header">
-          <h4>Create Scream/ສ້າງ scream</h4>
+          <h4>Create Scream</h4>
         </div>
         {/* Retrived Logged In User */}
         <div className="create__nav">
           <div className="__profile">
-            <img src={loggedInUser.profile.profileUrl} alt="" />
+            {
+              !loggedInUser.images ?
+              <img src="https://res.cloudinary.com/swizce/image/upload/v1636603317/Swizce/icons/no-image_md4u0i.png" alt="" />
+              :
+              <img src={loggedInUser.images} alt="" />
+            }
+            
           </div>
-          <span>{loggedInUser.profile.firstname},</span>
+            <span>@{loggedInUser.username}</span>       
           <div className="scream__status">
             status:
           </div>
@@ -86,6 +96,7 @@ const Create: React.FC<Props> = ({ userId }) => {
             <span>@feeling, activity, question...? (Category Tags)</span>
           </div>
         </div>
+          
         {errors.description && <span style={styles.errorMessage} role="alert">{errors.description.message}</span>}
         <div className="create__content">
           <textarea
@@ -140,8 +151,8 @@ const Create: React.FC<Props> = ({ userId }) => {
             </div>
           </div><br />
           <div className="create__footer">
-          <button disabled={loading} style={{cursor: loading ? 'not-allowed' : 'pointer'}} type="submit">
-            { loading ? <Loader type='Oval' color='white' height={30} width={30} timeout={30000} /> : 'Spread'}
+            <button disabled={loading} style={{cursor: loading ? 'not-allowed' : 'pointer'}} type="submit">
+              { loading ? <Loader type='Oval' color='white' height={30} width={30} timeout={30000} /> : 'Spread'}
             </button>
             {
               error && <div>{error.graphQLErrors[0]?.message || <p style={styles.errorMessage}>Sorry something went wrong...!</p>}</div>

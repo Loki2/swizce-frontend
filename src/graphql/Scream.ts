@@ -28,9 +28,7 @@ export const QUERY_SCREAMS = gql`
       user{
         id
         username
-        profile {
-          profileUrl
-        }
+        images
       }
     }
   }

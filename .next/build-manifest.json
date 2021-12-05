@@ -20,15 +20,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/index.js"
     ],
-    "/Messagers": [
+    "/Screams": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/Messagers.js"
-    ],
-    "/Settings": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/Settings.js"
+      "static/chunks/pages/Screams.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

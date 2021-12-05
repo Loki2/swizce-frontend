@@ -39,11 +39,11 @@ const Settings: React.FC<Props> = ({ user }) => {
     </div>
   ):(
     <>
-    {!loggedInUser ? <div></div> : <Sidebar />}
-      <div className="setting__page">
-        <Setting />
-      </div>      
-    {!loggedInUser ? <div></div> : <Rightbar profile={loggedInUser} />}
+      <Sidebar />
+        <div className="setting__page">
+          <Setting />
+        </div>      
+      <Rightbar user={loggedInUser} />
     </>
   )
 }

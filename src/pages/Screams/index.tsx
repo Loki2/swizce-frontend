@@ -2,13 +2,14 @@ import React, { useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import Loader from "react-loader-spinner";
 import { QUERY_SCREAMS } from "../../graphql/Scream";
 
 import Screams from "../../components/Scream/Screams";
 // import { Scream } from "../../types";
 import Rightbar from "../../components/Partials/Rightbar";
 import Sidebar from "../../components/Partials/Sidebar";
+import Index from "../../components/Index";
+
 
 interface Props {}
 
@@ -25,6 +26,8 @@ const ScreamPage: React.FC<Props> = () => {
   }); //<{ screams: Scream[], user: User }>
 
   // console.log("scream data:", data);
+
+
   
   const router = useRouter();
 
@@ -42,20 +45,10 @@ const ScreamPage: React.FC<Props> = () => {
   if (error) return <p>error</p>;
 
   return !loggedInUser ? (
-    <div className="display__page">
-      <section className="main">
-        <Loader
-          type="Oval"
-          color="teal"
-          height={50}
-          width={50}
-          timeout={30000}
-        />
-      </section>
-    </div>
+    <Index />
   ) : (
     <>
-      {!loggedInUser ? <div></div> : <Sidebar />}
+      <Sidebar />
       <div className="scream__page">
         <section className="scream__left">
           <div className="scream__stream__contents">
@@ -144,7 +137,7 @@ const ScreamPage: React.FC<Props> = () => {
           <div className="scream__contain">
             {data &&
               data.screams.map((scream) => (
-                <Screams scream={scream} key={scream.id} />
+                <Screams scream={scream} key={scream.id} user={loggedInUser} />
               ))}
           </div>
         </section>
@@ -257,7 +250,7 @@ const ScreamPage: React.FC<Props> = () => {
             </div>
         </section>
       </div>
-      {!loggedInUser ? <div></div> : <Rightbar profile={loggedInUser} />}
+      <Rightbar user={loggedInUser} />
     </>
   );
 };

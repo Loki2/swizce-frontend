@@ -57,9 +57,7 @@ const Layout: React.FC<Props> = ({ children }) => {
       </Head>
       
       <Navigation user={loggedInUser} />
-        <>
-          {children}
-        </>
+        {children}
         {
           authAction !== 'close' && (
             <>

@@ -8,18 +8,10 @@ export const MY_INFO = gql`
       id
       username
       email
+      images
+      covers
       roles
       createdAt
-      profile {
-        firstname
-        lastname
-        bios
-        age
-        birthdate
-        mentalStatus
-        profileUrl
-        coverUrl
-      }
     }
   }
 `;
@@ -27,17 +19,15 @@ export const MY_INFO = gql`
 //Management my Owner information
 export const QUERY_MYPROFILE = gql`
   query{
-      myInfo{
-        profile{
-          firstname
-          lastname
-          bios
-          age
-          birthdate
-          mentalStatus
-          profileUrl
-          coverUrl
-        }
+      myprofile{
+        id
+        firstname
+        lastname
+        bios
+        gender
+        age
+        birthdate
+        mentalStatus
       }
     }     
 `;
@@ -48,6 +38,8 @@ export const QUERY_USERS = gql`
       id
       username
       email
+      images
+      covers
       roles
       createdAt
     }

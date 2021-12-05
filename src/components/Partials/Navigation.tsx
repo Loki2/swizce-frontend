@@ -73,7 +73,7 @@ const Navigation: React.FC<NavigationProps> = ({ user }) => {
           <ul>
             <li>
               <a href="">
-                <img src="https://res.cloudinary.com/swizce/image/upload/v1620702239/Swizce/images/avatar1_c05cmb.png" className="btn" />
+                <img src="https://res.cloudinary.com/swizce/image/upload/v1620702241/Swizce/images/profile3_tl2cfr.png" className="btn" />
               </a>
             </li>
           </ul>
@@ -84,12 +84,39 @@ const Navigation: React.FC<NavigationProps> = ({ user }) => {
         <div className="navigation__link">
           <a style={{ cursor: 'pointer'}}>
             <img
-              onClick={handleSignout}
-              src="https://res.cloudinary.com/swizce/image/upload/v1622518178/Swizce/images/log-out_aqu0w7.png"
-              width="32px"
-              height="32px"
-            />
-          </a>
+                src="https://res.cloudinary.com/swizce/image/upload/v1638441532/Swizce/images/digital-wallet_yclr8n.png"
+                width="32px"
+                height="32px"
+              />
+            </a>     
+        </div>
+        <div className="navigation__link">
+          <a style={{ cursor: 'pointer'}}>
+            <img
+                src="https://res.cloudinary.com/swizce/image/upload/v1638441232/Swizce/images/big-data_yxpu2d.png"
+                width="32px"
+                height="32px"
+              />
+            </a>     
+        </div>
+        <div className="navigation__link">
+          <a style={{ cursor: 'pointer'}}>
+            <img
+                src="https://res.cloudinary.com/swizce/image/upload/v1638441365/Swizce/images/ethereum_mobgvd.png"
+                width="32px"
+                height="32px"
+              />
+            </a>     
+        </div>
+        <div className="navigation__link">
+          <a style={{ cursor: 'pointer'}}>
+            <img
+                onClick={handleSignout}
+                src="https://res.cloudinary.com/swizce/image/upload/v1622518178/Swizce/images/log-out_aqu0w7.png"
+                width="32px"
+                height="32px"
+              />
+            </a>     
         </div>
       </div>
     </>

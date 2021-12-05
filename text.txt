@@ -88,3 +88,20 @@ files.map(fileWrapper => (
 Link Access aws IAM:
 https://084997949835.signin.aws.amazon.com/console
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+profile components********************
+
+
+

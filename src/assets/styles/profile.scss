@@ -26,8 +26,18 @@
 .user__cover img {
   width: 975px;
   height: 315px;
+  border: 1px solid rgb(4, 175, 187);
   object-fit: cover;
   border-radius: 5px;
+}
+
+.user__cover img:hover {
+  width: 975px;
+  height: 315px;
+  object-fit: cover;
+  padding: 3px;
+  border-radius: 5px;
+  background: var(--primary);
 }
 
 .user__profile {
@@ -40,20 +50,58 @@
   width: 145px;
   height: 150px;
   object-fit: cover;
+  border: 1px solid rgb(4, 175, 187);
   padding: 3px;
   border-radius: 50%;
   background: #f1f3f6;
 }
 
+.user__profile img:hover {
+  width: 145px;
+  height: 150px;
+  object-fit: cover;
+  padding: 3px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
 .user__name {
-  position: absolute;
-  top: 330px;
-  margin-left: 675px;
+    position: absolute;
+    top: 330px;
+    margin-left: 665px;
+    background: var(--primary) !important;
+    border-radius: 7px;
+    // opacity: 50%;
 }
 
 .user__name h2 {
   color: #ffffff;
   font-size: 18px;
+  padding: 3px;
+}
+
+
+.user__name__fullname {
+    position: absolute;
+    top: 330px;
+    margin-left: 635px;
+    background: var(--primary) !important;
+    border-radius: 7px;
+}
+
+.user__name__fullname h2 {
+  color: #ffffff;
+  font-size: 18px;
+  padding: 3px;
+}
+
+
+
+.user__name .user__name__auth {
+  color: #ffffff;
+  font-size: 18px;
+  padding: 3px;
+  // margin-left: 15px;
 }
 
 .navigation__tabs {
@@ -71,6 +119,8 @@
   width: 317px;
   margin-left: 2px;
   border-radius: 5px;
+  // overflow: hidden;
+  position: sticky;
 }
 
 .user__activity__item {
