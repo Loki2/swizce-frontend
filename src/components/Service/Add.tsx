@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useState} from 'react'
+import React, { useContext, useState, useCallback} from 'react'
 import CreateServiceModal from '../Modal/CreateService';
 import { useForm } from 'react-hook-form';
 import { useMutation } from '@apollo/client';
@@ -6,38 +6,65 @@ import { AuthContext } from "../../context/AuthContext";
 import { useRouter } from 'next/router';
 import Loader from "react-loader-spinner";
 import { CREATE_SERVICE, QUERY_SERVICE } from '../../graphql/Service';
-
-
-
-import {useDropzone} from 'react-dropzone';
+import { useDropzone } from 'react-dropzone';
 import { CreateServiceArg, Service } from '../../types';
+import Uploadlogo from './utils/Uploadlogo';
+import { FileError } from "react-dropzone";
 
 interface Props {
   userId: string
 }
 
+export interface UploadImageProp {
+  file: File;
+  errors: FileError[];
+  logo: string;
+}
+
+
+
 const AddService: React.FC<Props>  = () => {
   const { handleAuthAction } = useContext(AuthContext);
-
-  const router = useRouter();
-
   const { register, errors, handleSubmit } = useForm<CreateServiceArg>();
+  const [image, setImage] = useState(null);
 
-  const {getRootProps, getInputProps, open, acceptedFiles} = useDropzone({
+
+  const onDrop = useCallback((acceptedFiles) => {
+    const url = 'https://api.cloudinary.com/v1_1/swizce/image/upload';
+    acceptedFiles.forEach(async (acceptedFile) => {
+      const formData = new FormData();
+      formData.append('file', acceptedFile)
+      formData.append('upload_preset', 'swizce-service')
+
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData
+      })
+      //return file as url
+      const data = await response.json();
+      setImage(data);
+    });
+  },[]);
+
+
+  const {getRootProps, getInputProps, open} = useDropzone({
     // Disable click and keydown behavior
     noClick: true,
-    noKeyboard: true
+    noKeyboard: true,
+    multiple: false,
+    onDrop
   });
+
+  
 
   const [createService, {loading, error}] = useMutation<{ createService: Service}, CreateServiceArg>(CREATE_SERVICE);
   
-  const [cover,  setCover] = useState(null);
-  const [logo,  setLogo] = useState(null);
+  const router = useRouter();
 
   //submit function to database
-  const submitCreateService = handleSubmit(async ({ name, description, contact, address, tags, imageUrl, logoUrl }) => {
+  const submitCreateService = handleSubmit(async ({ name, description, contact, address, tags, }) => {
     try {
-      const result = await createService({ variables: { name, description, contact, address, tags, imageUrl, logoUrl }, refetchQueries: [{ query: QUERY_SERVICE}]});
+      const result = await createService({ variables: {name, description, contact, address, tags, imageUrl: image.secure_url,}, refetchQueries: [{ query: QUERY_SERVICE}]});
 
       // console.log("result: ", result)
       if(result.data.createService){
@@ -63,25 +90,22 @@ const AddService: React.FC<Props>  = () => {
           </div>
           <div className="create__service__body">
 
-              <div className="__service__cover__upload">
-                <div {...getRootProps({className: 'dropzone'})}>
-                  <input {...getInputProps()} />
+          <div className="__service__cover__upload">
+            <div {...getRootProps({className: 'dropzone'})}>
+              <input {...getInputProps()} />
                   <button type="button" onClick={open}>
-                    <img src="https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image.png" alt="" />
+                    {
+                      !image ? (
+                        <img src="https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image.png" alt="" />
+                      ) : (
+                        <img src={image.secure_url} alt="" />
+                      )
+                    }          
                   </button>
                 </div>                
               </div>
               <div className="create__service__contents">
-                <div className="__service__profile__upload">
-                  <div {...getRootProps({className: 'dropzone'})}>
-                    <input {...getInputProps()} />
-                    <button type="button" onClick={open}>
-                      <img src="https://propertywiselaunceston.com.au/wp-content/themes/property-wise/images/no-image.png" alt="" />
-                    </button>
-                  </div> 
-                </div>
-               
-              
+                <Uploadlogo />                         
                 <div className="__service__content__fileds">
                   <div className="service__form__control">
                     <h5>Name:</h5>
@@ -101,6 +125,7 @@ const AddService: React.FC<Props>  = () => {
                       placeholder="Provide your brand service...?" 
                       name="description"
                       ref={register({
+                        required: 'Description field also require...!',
                         maxLength: {
                           value: 5000,
                           message: "Scream Description must not be more than 5000 characters",
@@ -108,7 +133,7 @@ const AddService: React.FC<Props>  = () => {
                       })}
                       cols={30} rows={5}></textarea>
                   </div>
-
+                  {errors.description && <span style={styles.errorMessage} role="alert">{errors.description.message}</span>}
                   <div className="service__form__control">
                     <h5>Contact:</h5>
                     <input type="text" 
@@ -142,24 +167,6 @@ const AddService: React.FC<Props>  = () => {
                         />
                   </div>
                   {errors.address && <span style={styles.errorMessage} role="alert">{errors.address.message}</span>}
-
-                  {/* <div className="service__form__control">
-                    <h5>Logo:</h5>
-                    <input type="text" 
-                        placeholder="Select logo brand service..."
-                        name="logoUrl"
-                        ref={register()}
-                        />
-                  </div>
-
-                  <div className="service__form__control">
-                    <h5>Image:</h5>
-                    <input type="text" 
-                        placeholder="Select image brand service..."
-                        name="imageUrl"
-                        ref={register()}
-                        />
-                  </div> */}
                 </div>
               </div>
               

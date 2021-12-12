@@ -188,15 +188,15 @@ const ScreamPage: React.FC<Props> = () => {
             </div>
           </div>
           <div className="scream__shope__activity">
-            <h2>More Shopes!</h2>
+            <h2>More Shops!</h2>
             <div className="scream__shope__list">
               <ul>
                   <li>
                       <div className="scream__shope__item">
                         <img src="https://previews.123rf.com/images/fiphoto/fiphoto1405/fiphoto140503452/28597875-luxury-and-fashionable-brand-new-interior-of-cloth-store.jpg" alt="" />
                         <div className="scream__shope__action">
-                          <p>Cloth Shopes</p>
-                          <a href="">Shope Now!</a>
+                          <p>Cloth Shops</p>
+                          <a href="">Shop Now!</a>
                         </div>
                       </div>
                   </li>
@@ -204,8 +204,8 @@ const ScreamPage: React.FC<Props> = () => {
                       <div className="scream__shope__item">
                         <img src="https://retaildesignblog.net/wp-content/uploads/2013/01/Club-Monaco-Mens-Shop-Toronto.jpg" alt="" />
                         <div className="scream__shope__action">
-                          <p>Mens Shopes</p>
-                          <a href="">Shope Now!</a>
+                          <p>Mens Shops</p>
+                          <a href="">Shop Now!</a>
                         </div>
                       </div>
                   </li>
@@ -213,8 +213,8 @@ const ScreamPage: React.FC<Props> = () => {
                       <div className="scream__shope__item">
                         <img src="https://cdn.images.express.co.uk/img/dynamic/130/590x/women-shopping-825605.jpg" alt="" />
                         <div className="scream__shope__action">
-                          <p>Womens Shopes</p>
-                          <a href="">Shope Now!</a>
+                          <p>Womens Shop</p>
+                          <a href="">Shop Now!</a>
                         </div>
                       </div>
                   </li>
@@ -222,8 +222,8 @@ const ScreamPage: React.FC<Props> = () => {
                       <div className="scream__shope__item">
                         <img src="https://cdn.trendhunterstatic.com/thumbs/electronic-store.jpeg" alt="" />
                         <div className="scream__shope__action">
-                          <p>Electronics Shopes</p>
-                          <a href="">Shope Now!</a>
+                          <p>Electronics Shop</p>
+                          <a href="">Shop Now!</a>
                         </div>
                       </div>
                   </li>
@@ -231,8 +231,8 @@ const ScreamPage: React.FC<Props> = () => {
                       <div className="scream__shope__item">
                         <img src="https://fridayflyer.com/wp-content/uploads/2015/02/A5-PIC-3-P1010050.jpg" alt="" />
                         <div className="scream__shope__action">
-                          <p>Kids Shopes</p>
-                          <a href="">Shope Now!</a>
+                          <p>Kids Shop</p>
+                          <a href="">Shop Now!</a>
                         </div>
                       </div>
                   </li>
@@ -240,8 +240,8 @@ const ScreamPage: React.FC<Props> = () => {
                       <div className="scream__shope__item">
                         <img src="https://fridayflyer.com/wp-content/uploads/2015/02/A5-PIC-3-P1010050.jpg" alt="" />
                         <div className="scream__shope__action">
-                          <p>Kids Shopes</p>
-                          <a href="">Shope Now!</a>
+                          <p>Kids Shop</p>
+                          <a href="">Shop Now!</a>
                         </div>
                       </div>
                   </li>

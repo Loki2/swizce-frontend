@@ -1,22 +1,28 @@
 import React, { useContext, useEffect } from 'react'
 import { useRouter } from "next/router";
 import { AuthContext } from "../../context/AuthContext";
-
+import { useQuery } from '@apollo/client';
 
 import Sidebar from "../../components/Partials/Sidebar";
-import Profile from '../../components/User/Profile';
+import Profile from '../../components/User/MyProfile';
 import Index from '../../components/Index';
-
+import { MY_SCREAMS } from '../../graphql/User';
+import MyScreams from '../../components/User/MyScreams';
 
 interface Props {
   
 }
 
 const ProfilePage: React.FC<Props> = () => {
+
   let getYear = () => {
     let currentYear = new Date().getFullYear();
       return currentYear;
   };
+
+  const {data, loading, error} = useQuery(MY_SCREAMS, {
+    fetchPolicy: 'network-only'
+  })
 
 
   const { loggedInUser } = useContext(AuthContext);
@@ -33,36 +39,18 @@ const ProfilePage: React.FC<Props> = () => {
     }
   }, [loggedInUser]);
 
+  if (loading) return <p>Loading ...</p>;
+  if (error) return <p>error</p>;
+
+  const myScreams = data.myInfo.screams;
+
   return !loggedInUser ? (
     <Index />
   ) : (
     <>
       <Sidebar />
       <div className="profile__page">
-        {
-          !loggedInUser ?
-            <section className="user__profile__info">
-            <div className="user__media__info">
-              <div className="user__cover">
-                <img src="https://wallpapercave.com/wp/wp3703397.jpg" alt="" />
-              </div>
-              <div className="user__profile">
-                <img src="https://res.cloudinary.com/swizce/image/upload/v1620702350/Swizce/icons/test_roevfj.jpg" alt="" />
-              </div>
-            </div>
-            <div className="user__name">
-              <h2>Add Profile</h2>
-            </div>
-          </section>
-          :
-          <Profile user={loggedInUser} />
-        }
-
-        <section className="user__profile__navigation">
-          <div className="navigation__tabs">
-            <h1>Navigation</h1>
-          </div>
-        </section>
+        <Profile user={loggedInUser} />       
         <section className="user__scream__post">
           <div className="user__activity__list">
             <h2>My Activities</h2>
@@ -121,88 +109,15 @@ const ProfilePage: React.FC<Props> = () => {
           
           <div className="user__owner_scream">
             <div className="user__scream__list">
-              <div className="user__scream__item">
-                <div className="user__profile__scream">
-                  <div className="user__profile__scream__container">
-                    {/* design scream images template */}
-                    <div className="user__profile__scream__media">
-                      <img src="https://wallpapercave.com/wp/wp3703429.jpg" />
-                    </div>
-
-                    {/* More functionality */}
-                    <ul className="side__icons">
-                      <span>
-                        <i className="ti-heart" />
-                      </span>
-                      <span>
-                        <i className="ti-comment" />
-                      </span>
-                      <span>
-                        <i className="ti-rss-alt" />
-                      </span>
-                    </ul>
-
-                    {/* Scream Contents */}
-                    <div className="user__profile__scream__content">
-                      <h2 onClick={() => router.push(`/user/$`)}>
-                        @<strong>Loki Rixnickz</strong>{" "}
-                      </h2>
-                      <span className="public_time">3 hours ago</span>
-                      <p>the world has changed from your</p>
-                    </div>
-
-                    {/* Scream functionality */}
-                    <div className="user__profile__play__scream">
-                      <i
-                        className="ti-control-play"
-                        onClick={() => router.push(`/Screams/v/_id=?$`)}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div><br />
-              <div className="user__scream__item">
-                <div className="user__profile__scream">
-                  <div className="user__profile__scream__container">
-                    {/* design scream images template */}
-                    <div className="user__profile__scream__media">
-                      <img src="https://wallpapercave.com/wp/wp3703429.jpg" />
-                    </div>
-
-                    {/* More functionality */}
-                    <ul className="side__icons">
-                      <span>
-                        <i className="ti-heart" />
-                      </span>
-                      <span>
-                        <i className="ti-comment" />
-                      </span>
-                      <span>
-                        <i className="ti-rss-alt" />
-                      </span>
-                    </ul>
-
-                    {/* Scream Contents */}
-                    <div className="user__profile__scream__content">
-                      <h2 onClick={() => router.push(`/user/$`)}>
-                        @<strong>Loki Rixnickz</strong>{" "}
-                      </h2>
-                      <span className="public_time">3 hours ago</span>
-                      <p>the world has changed from your</p>
-                    </div>
-
-                    {/* Scream functionality */}
-                    <div className="user__profile__play__scream">
-                      <i
-                        className="ti-control-play"
-                        onClick={() => router.push(`/Screams/v/_id=?$`)}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {
+                myScreams && 
+                myScreams.map((scream) => (
+                  <MyScreams scream={scream} key={scream.id} user={loggedInUser}/>
+                ))
+              }
             </div>
           </div>
+
           <div className="user__more__actions">
             <div className="user__subscriber__action">
               <div className="user__subscriber__action__item">

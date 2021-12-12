@@ -65,7 +65,7 @@ const Service: React.FC<Props> = ({ service, user }) => {
                 Location:{" "}
                 {location.loaded
                   ? JSON.stringify(location)
-                  : "Location is available"}
+                  : "ອານຸຍາດໃຫ້ເຂົາເຖີ່ງທີ່ຢູ່ປະຈຸບັນຂອງທ່ານ? ເພື່ອເຊັກບໍລິການອຳນວຍຄວາມສະດວກຕ່າງໆທີ່ຢູ່ໃກ້ທ່ານ"}
               </h3>
               <h3>rating: </h3>
             </div>

@@ -26,6 +26,10 @@
 html {
   box-sizing: border-box;
   /* font-size: 100%; */
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 body {
@@ -56,7 +60,9 @@ li {
 
 
 
-//Create Scream component
+/*
+/************Create Scream component ***********************************************
+*/
 .create__content {
   margin: 9px 0 9px 0;
   width: auto;
@@ -168,6 +174,18 @@ li {
   align-items: center;
 }
 
+.uploader__media .dropzone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid__upload__item img {
+  padding: 3px;
+  border-radius: 7px;
+  object-fit: cover;
+}
+
 .uploader__media p {
   padding: 10px;
   font-size: 10px;
@@ -224,7 +242,9 @@ li {
   border-radius: 5px;
 }
 
-//Footer page
+/*
+/************ Footer Style Component***************************************************
+*/
 .footer {
   width: 100%;
   height: 100px;

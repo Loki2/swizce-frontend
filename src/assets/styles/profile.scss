@@ -1,96 +1,71 @@
 @import './varables';
 
 .profile__page{
+  // overflow: hidden;
   width: 100%;
   margin: 0;
-  // display: flex;
-  justify-content: center;
+  // position: fixed;
   display: block;
 }
-
-.user__profile__info {
-  margin: 0 230px 0 230px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px var(--darkgrey);
-}
-
 .user__media__info {
-  margin: 58px 0px 0px 220px;
-  display: block;
+  width: 76%;
+  margin-left: 229px;
+  box-shadow: 0px 1px 1px rgb(184, 185, 185);
+  border-radius: 7px;
 }
 
-.user__cover {
-  padding-top: 5px;
-}
 
 .user__cover img {
-  width: 975px;
+  width: 100%;
   height: 315px;
-  border: 1px solid rgb(4, 175, 187);
   object-fit: cover;
-  border-radius: 5px;
 }
 
 .user__cover img:hover {
-  width: 975px;
-  height: 315px;
-  object-fit: cover;
-  padding: 3px;
-  border-radius: 5px;
+  padding: 1px;
   background: var(--primary);
 }
 
 .user__profile {
-  position: absolute;
-  top: 165px;
-  margin-left: 430px;
+  position: relative;
+  top: -50px;
+  left: 120px;
 }
 
 .user__profile img {
-  width: 145px;
-  height: 150px;
-  object-fit: cover;
-  border: 1px solid rgb(4, 175, 187);
-  padding: 3px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
-  background: #f1f3f6;
 }
 
 .user__profile img:hover {
-  width: 145px;
-  height: 150px;
-  object-fit: cover;
-  padding: 3px;
-  border-radius: 50%;
+  padding: 1px;
   background: var(--primary);
 }
 
 .user__name {
-    position: absolute;
-    top: 330px;
-    margin-left: 665px;
-    background: var(--primary) !important;
-    border-radius: 7px;
-    // opacity: 50%;
+  position: relative;
+  top: -45px;
+  left: 335px;
+  border-radius: 7px;
 }
 
 .user__name h2 {
-  color: #ffffff;
+  color: var(--primary);
   font-size: 18px;
   padding: 3px;
 }
 
 
 .user__name__fullname {
-    position: absolute;
-    top: 330px;
-    margin-left: 635px;
-    background: var(--primary) !important;
+    position: relative;
+    top: -45px;
+    left: 295px;
     border-radius: 7px;
 }
 
 .user__name__fullname h2 {
-  color: #ffffff;
+  color: var(--primary);
   font-size: 18px;
   padding: 3px;
 }
@@ -164,7 +139,7 @@
   display: flex;
   flex-direction: row;
   margin-left:228px;
-  position: absolute;
+  position: relative;
 }
 
 .user__scream__list {
@@ -262,4 +237,64 @@
     font-size: 18px;
     color: rgb(4, 175, 187);
   }
+}
+
+
+//my scream component style
+.user__scream__item {
+  overflow: hidden;
+  display: block;
+  position: relative;
+  background: var(--white);
+  box-shadow: 0px 2px 5px var(--darkgrey);
+  margin-bottom: 10px;
+  padding: 0 0 85px 0;
+  border-radius: 5px;
+}
+
+
+.user__scream__item .side__icons {
+  position: absolute;
+  right: 5px;
+  top: 75%;
+  color: white;
+  transform: translate(80%, -50%);
+  display: flex;
+  flex-direction: column;
+  padding: 0px 3px -1px 6px;
+  transition: all 500ms ease-in-out;
+}
+
+.user__scream__item .side__icons span {
+  font-size: 0.5rem;
+  margin: .3rem;
+  padding: 6px 8px 0px 14px;
+  border-radius: 50%;
+  transition: all 300ms ease-in-out;
+}
+
+.user__profile__scream__content {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  padding: 1px 5px 1px 5px;
+  transition: all 500ms ease-in-out;
+  color: var(--primary);
+}
+
+.user__profile__scream__content p {
+  font-weight: 200;
+  padding: 3px;
+}
+
+.user__profile__play__scream {
+  position: absolute;
+  right: 9px;
+  bottom: 0.9rem;
+  background-color: white;
+  border-radius: 50%;
+  padding: 6px 5px 4px 10px;
+  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+  transform: all 300ms ease-in-out;
+  color: var(--primary);
 }

@@ -1,12 +1,10 @@
 import React from "react";
-import Navigation from "../Partials/Navigation";
 
 interface Props {}
 
 const SuperAdmin: React.FC<Props> = () => {
   return (
     <div>
-      <Navigation />
       {/* sidebar menu */}
       <section className="main">
         {/* main container */}

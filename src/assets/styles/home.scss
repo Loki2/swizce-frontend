@@ -276,13 +276,14 @@
 
 .home__scream h2 {
   margin-bottom: 8px;
+  color: var(--primary);
 }
 
 .home__scream .public_time {
   padding: 3px;
   margin: 1px;
   background: var(--primary);
-  border-radius: 15px;
+  border-radius: 7px;
 }
 
 .home__scream__container .__scream__content {
@@ -296,6 +297,9 @@
   p {
     margin-top: 5px;
     font-weight: 200;
+    border-radius: 7px;
+    background: var(--darkgrey);
+    color: var(--primary);
     padding: 3px;
   }
 }
@@ -337,7 +341,7 @@
   display: flex;
   flex-direction: column;
   padding: 0px 3px -1px 6px;
-  transition: all 400ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .home__scream .side__icons span {
@@ -345,7 +349,7 @@
   margin: .3rem;
   padding: 6px 8px 0px 14px;
   border-radius: 50%;
-  transition: all 300ms ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 .home__scream .side__icons span:hover {

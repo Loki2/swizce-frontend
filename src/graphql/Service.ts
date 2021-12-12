@@ -8,8 +8,7 @@ export const CREATE_SERVICE = gql`
     $address: String!,
     $contact: String!,
     $tags: String!,
-    $imageUrl: String!,
-    $logoUrl: String!,
+    $imageUrl: String!
   ){
     createService(
       name: $name,
@@ -17,8 +16,7 @@ export const CREATE_SERVICE = gql`
       address: $address,
       contact: $contact,
       tags: $tags,
-      imageUrl: $imageUrl,
-      logoUrl: $logoUrl,
+      imageUrl: $imageUrl
     ){
       id
       name
@@ -27,7 +25,6 @@ export const CREATE_SERVICE = gql`
       contact
       tags
       imageUrl
-      logoUrl
     }
   }
 

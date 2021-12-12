@@ -18,6 +18,7 @@ const Services: React.FC<Props> = () => {
       return currentYear;
   };
 
+
   const [location, setLocation] = useState({
     loaded: false,
     coordinates: {lat: "", lng: ""}
@@ -186,7 +187,6 @@ const Services: React.FC<Props> = () => {
                   </li> 
                 </ul>
               </div>
-
               <div className="copy__right__component">
                 <h5>Term of Service, Privacy Policy, <br /> Cookie Policy, Ads info more...</h5>
                 <p>&copy;{getYear()} {" "}| Swizce Inc,</p>
@@ -242,6 +242,7 @@ const Services: React.FC<Props> = () => {
                   </li>
                 </ul>              
               </div>
+              
             </div>
           </section>
         </div>

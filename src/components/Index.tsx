@@ -59,11 +59,11 @@ const Index: React.FC<Props> = () => {
         </div>
         <div className="select__languege">
           <ul>
-            {
+            {/* {
               router.locales.map(locale => <li key={locale}>
                 <Link href={router.asPath} locale={locale}>{locale}</Link>
               </li>)
-            }
+            } */}
           </ul>
         </div>
       </section>

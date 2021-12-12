@@ -10,6 +10,34 @@ export interface User {
   createdAt: string
 }
 
+export interface UserScream {
+    id: string,
+    imageUrl: string,
+    description: string,
+    likes: number,
+    shares: number,
+    status: string,
+    createdAt: Date,
+    comments: {
+      id: string,
+      description: string,
+      user: {
+        id: string,
+        username: string,
+        images: string
+      }
+      recomments: {
+        id: string,
+        description: string
+        user:  {
+          id: string,
+          username: string,
+          images: string
+        }
+      }
+    }
+  }
+
 export interface Profile {
   id: string,
   username: string,
@@ -35,10 +63,12 @@ export interface Scream {
   videoUrl: string,
   description: string,
   likes: number,
-  shared: number,
+  shares: number,
+  status: string,
   createdAt: Date,
   user: User
 }
+
 
 
 export interface Service {
@@ -83,4 +113,4 @@ export type SigninArgs = Omit<SignupArgs, 'username'>
 
 export type CreateScreamArgs = Pick<Scream, 'description' | 'imageUrl'>
 
-export type CreateServiceArg = Pick<Service, 'name' | 'description' | 'contact' | 'address' | 'tags' | 'imageUrl' | 'logoUrl'>
+export type CreateServiceArg = Pick<Service, 'name' | 'description' | 'contact' | 'address' | 'tags' | 'imageUrl'>

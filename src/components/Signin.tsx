@@ -10,6 +10,7 @@ import Modal from './Modal/Modal';
 import { AuthContext } from "../context/AuthContext";
 import { isAdmin } from '../helpers/authHelper';
 import { QUERY_SCREAMS } from '../graphql/Scream';
+import { QUERY_MYPROFILE } from '../graphql/User';
 
 interface Props {}
 
@@ -27,7 +28,7 @@ const Signin: React.FC<Props> = () => {
 
   const handleSignin = handleSubmit( async ({ email, password }) => {
     try {
-      const response = await signin({ variables: {email, password}, refetchQueries: [{ query: QUERY_SCREAMS, }]});
+      const response = await signin({ variables: {email, password}, refetchQueries: [{ query: QUERY_SCREAMS}, {query: QUERY_MYPROFILE}]});
      
       if(response?.data?.signIn) {
           const user = response.data.signIn;

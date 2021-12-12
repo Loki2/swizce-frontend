@@ -14,6 +14,7 @@ import ResetPassword from './ResetPassword';
 import Navigation from './Partials/Navigation';
 import Create from './Scream/Create';
 import AddService from './Service/Add';
+import Add from './Scream/Add';
 // import { isAdmin } from '../helpers/authHelper';
 // import AdminNavbar from './Partials/AdminNavbar';
 

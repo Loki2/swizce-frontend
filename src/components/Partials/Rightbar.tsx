@@ -15,6 +15,7 @@ const Rightbar: React.FC<Props> = ({ user }) => {
     fetchPolicy: "network-only",
   });
 
+
   if(loading) return <p>Loading....!</p>
   if(error) return <p>Ooooops....!</p>
 

@@ -34,7 +34,7 @@ const Navigation: React.FC<NavigationProps> = ({ user }) => {
         window.localStorage.setItem('signout', Date.now().toString())
 
         //push user to Signin Page
-        router.push('/Signin')
+        router.push('/')
       }
     } catch (error) {
       alert('Sorry can not proceed...!')

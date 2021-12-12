@@ -1,13 +1,13 @@
-import IScream from '../../types/index'
 
-const screams: Array<IScream> = [
+
+const screams = [
   { 
     id: "aaaaaaaaaa",
     imageUrl:"../images/posts/flower2.jpeg",
     videoUrl: "",
-    desc:"test to protected yourself",
+    description:"test to protected yourself",
     likes: 2,
-    shared: 4
+    shares: 4
   },
   { 
     id: "bbbbbbbbb",

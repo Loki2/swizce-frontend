@@ -11,7 +11,7 @@ import Index from "../components/Index";
 
 interface Props {}
 
-const Start: React.FC<Props> = ({ }) => {
+const Start: React.FC<Props> = () => {
   let getYear = () => {
     let currentYear = new Date().getFullYear();
     return currentYear;
